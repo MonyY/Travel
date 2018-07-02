@@ -1,23 +1,24 @@
 <template lang="pug">
- .hello
-  h1 aaaa
+  .hello
+    HomeHeader
 </template>
 
 <script>
+import HomeHeader from './components/Header'
 export default {
+  components: {
+    HomeHeader
+  },
   data () {
     return {
 
     }
   },
-  components: {
+  methods: {
 
   }
 }
 </script>
 
-<style lang="stylus">
-  .hello
-    h1
-      color: green;
+<style lang="stylus">    
 </style>

@@ -5,7 +5,7 @@
         .icon(v-for='item in page', :key='item.id')
           img(:src='item.img')
           p.icon-desc {{item.desc}}
-      .swiper-pagination(slot="pagination")
+      .swiper-pagination(slot="pagination" v-if='pages.length > 1')
 </template>
 
 <script>
@@ -99,6 +99,8 @@ export default {
     overflow hidden
     height 0
     padding-bottom 50%
+    .swiper-container
+      padding .1rem 0
     .icon-img
       position absolute
       top 0
@@ -111,14 +113,16 @@ export default {
       float left
       width 25%
       height 0
-      padding-bottom 25%
+      padding-bottom 23%
       img
         display block
         margin 0 auto
         width 50%
       .icon-desc
+        padding-top: .06rem;
         text-align: center
         color $darkFontColor
+        font-size: .14rem;
         ellipsis()
   .icons >>> .swiper-pagination-bullet-active
     background-color $bgColor

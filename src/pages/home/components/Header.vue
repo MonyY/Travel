@@ -15,7 +15,7 @@ export default {
   components: {
 
   },
-  data() {
+  data () {
     return {
 
     }
@@ -40,9 +40,9 @@ export default {
       float left
       width .32rem
       .icon-fanhui
-        height: 100%;
-        font-size: .24rem;
-        line-height: .43rem;
+        height 100%
+        font-size .24rem
+        line-height .43rem
     .header-input
       flex 1
       height .32rem
@@ -54,9 +54,9 @@ export default {
       .icon-sousuo
         padding 0 .1rem
     .header-right
-      float right 
+      float right
       width .62rem
       text-align center
-      line-height: .43rem;
-      font-size: .2rem;
+      line-height .43rem
+      font-size .2rem
 </style>

@@ -8,6 +8,11 @@ import 'styles/reset.styl'
 import 'styles/border.styl'
 import 'styles/iconfont/iconfont.css'
 import fastClick from 'fastclick'
+// 轮播图
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper)
 
 // 解决移动端点击300ms
 fastClick.attach(document.body)

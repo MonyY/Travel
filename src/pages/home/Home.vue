@@ -1,13 +1,19 @@
 <template lang="pug">
-  .hello
+  .home
     HomeHeader
+    HomeSwiper
+    HomeIcons
 </template>
 
 <script>
 import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
+import HomeIcons from './components/IconsLayout'
 export default {
   components: {
-    HomeHeader
+    HomeHeader,
+    HomeSwiper,
+    HomeIcons
   },
   data () {
     return {
@@ -20,5 +26,5 @@ export default {
 }
 </script>
 
-<style lang="stylus">    
+<style lang="stylus">
 </style>

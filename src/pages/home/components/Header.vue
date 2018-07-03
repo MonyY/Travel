@@ -6,14 +6,14 @@
       i.iconfont.icon-sousuo
       | 输入城市/景点/游玩主题
     .header-right
-      | 城市
+      | {{this.city}}
       i.iconfont.icon-jiantouxia
 </template>
 
 <script>
 export default {
-  components: {
-
+  props: {
+    city: String
   },
   data () {
     return {

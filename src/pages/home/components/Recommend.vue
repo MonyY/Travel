@@ -2,8 +2,8 @@
   .Recommend
     .title 热门推荐
     ul
-      li.item.border-bottom-1px(v-for='item in recommendList', :key='item.id')
-        img.item-img(:src='item.img')
+      li.item.border-bottom-1px(v-for='item in list', :key='item.id')
+        img.item-img(:src='item.imgUrl')
         .item-info
           p.item-title {{item.title}}
           p.item-desc {{item.desc}}
@@ -12,32 +12,8 @@
 
 <script>
 export default {
-  components: {
-
-  },
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          img: 'http://img1.qunarzz.com/sight/p0/1612/1d/1d9a740c1f9e0efaa3.img.jpg_200x200_63285bd9.jpg',
-          title: '成都海昌极地海洋公园',
-          desc: '16320条评论'
-        },
-        {
-          id: '0002',
-          img: 'http://img1.qunarzz.com/sight/p0/1612/1d/1d9a740c1f9e0efaa3.img.jpg_200x200_63285bd9.jpg',
-          title: '成都海昌极地海洋公园',
-          desc: '1条评论'
-        }
-      ]
-    }
-  },
-  computed: {
-
-  },
-  methods: {
-
+  props: {
+    list: Array
   }
 }
 </script>

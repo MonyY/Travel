@@ -28,6 +28,6 @@ module.exports = {
     'eqeqeq': [2, 'smart'],
     'eol-last': 0,
     'indent': [1, 2],
-    'quotes:': [1, "single"]
+    'space-before-function-paren': 0
   }
 }

@@ -22,9 +22,6 @@ export default {
     Recommend,
     Weekend
   },
-  mounted() {
-    this._getHomeInfo()
-  },
   data () {
     return {
       city: '',
@@ -33,6 +30,9 @@ export default {
       recommendList: [],
       weekendList: []
     }
+  },
+  mounted() {
+    this._getHomeInfo()
   },
   methods: {
     _getHomeInfo () {

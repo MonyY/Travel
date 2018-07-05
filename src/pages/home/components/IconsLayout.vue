@@ -5,7 +5,7 @@
         .icon(v-for='item in page', :key='item.id')
           img(:src='item.imgUrl')
           p.icon-desc {{item.desc}}
-      .swiper-pagination(slot="pagination" v-if='pages.length > 1')
+      .swiper-pagination(slot="pagination" v-show='pages.length > 1')
 </template>
 
 <script>
@@ -23,9 +23,9 @@ export default {
   },
   computed: {
     pages () {
-      const pages = []
+      let pages = []
       this.list.forEach((item, index) => {
-        const page = Math.floor(index / 8)
+        let page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
         }

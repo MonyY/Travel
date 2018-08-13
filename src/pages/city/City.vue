@@ -2,8 +2,15 @@
   .city
     CityHeader
     CitySearch
-    CityList(:cities="cities", :hot="hotCities")
-    CityAlphabet(:list="cities")
+    CityList(
+      :cities="cities"
+      :hot="hotCities"
+      :letter="letter"
+    )
+    CityAlphabet(
+      :list="cities"
+      @changeLetter="changeLetterHandle"
+    )
 </template>
 
 <script>
@@ -24,7 +31,8 @@ export default {
   data () {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     }
   },
   created() {
@@ -42,6 +50,11 @@ export default {
         this.cities = data.data.cities
         this.hotCities = data.data.hotCities
       }
+    },
+
+    // 接收右侧字母点击
+    changeLetterHandle(letter) {
+      this.letter = letter
     }
   }
 }

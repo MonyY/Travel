@@ -12,11 +12,13 @@
           .button-wrapper(
             v-for="item in hot"
             :key="item.id"
-            )
+          )
             .button {{item.name}}
       .area(
         v-for="(item, key) in cities"
-        :key="key")
+        :key="key"
+        :ref="key"
+      )
         .title.border-topBottom {{key}}
         .item-list
           .item(
@@ -34,7 +36,8 @@ export default {
   },
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   data () {
     return {
@@ -45,6 +48,14 @@ export default {
     this.scroll = new Bscroll(this.$refs.wrapper)
   },
   methods: {
+  },
+  watch: {
+    letter() {
+      if (this.letter) {
+        const ele = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(ele)
+      }
+    }
   }
 }
 </script>

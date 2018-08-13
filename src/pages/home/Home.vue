@@ -1,6 +1,6 @@
 <template lang="pug">
   .home
-    HomeHeader(:city="city")
+    HomeHeader
     HomeSwiper(:list="swiperList")
     HomeIcons(:list="iconList")
     Recommend(:list="recommendList")
@@ -14,6 +14,8 @@ import HomeIcons from './components/IconsLayout'
 import Recommend from './components/Recommend'
 import Weekend from './components/Weekend'
 import {getHomeInfo} from '@/api/baseApi.js'
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     HomeHeader,
@@ -24,7 +26,7 @@ export default {
   },
   data () {
     return {
-      city: '',
+      preCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -32,14 +34,17 @@ export default {
     }
   },
   mounted() {
+    this.preCity = this.city
     this._getHomeInfo()
+  },
+  computed: {
+    ...mapGetters(['city'])
   },
   methods: {
     _getHomeInfo () {
-      getHomeInfo((data) => {
+      getHomeInfo(this.city, (data) => {
         const res = data.data
         if (res.ret && res.data) {
-          this.city = res.city
           this.swiperList = res.data.swiperList
           this.iconList = res.data.iconList
           this.recommendList = res.data.recommendList
@@ -48,6 +53,13 @@ export default {
       }, (err) => {
         console.log(err)
       })
+    }
+  },
+  // keepAlive生效时的钩子函数
+  activated() {
+    if (this.preCity !== this.city) {
+      this.preCity = this.city
+      this._getHomeInfo()
     }
   }
 }

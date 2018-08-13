@@ -5,13 +5,14 @@
         .title.border-topBottom 当前城市
         .button-list
           .button-wrapper
-            .button 成都
+            .button {{this.city}}
       .area
         .title.border-topBottom 热门城市
         .button-list
           .button-wrapper(
             v-for="item in hot"
             :key="item.id"
+            @click="handelCityClick(item.name)"
           )
             .button {{item.name}}
       .area(
@@ -24,11 +25,13 @@
           .item(
             v-for="c in item"
             :key="c.id"
+            @click="handelCityClick(c.name)"
           ) {{c.name}}
 </template>
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   components: {
@@ -48,6 +51,11 @@ export default {
     this.scroll = new Bscroll(this.$refs.wrapper)
   },
   methods: {
+    handelCityClick(city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   watch: {
     letter() {
@@ -56,6 +64,9 @@ export default {
         this.scroll.scrollToElement(ele)
       }
     }
+  },
+  computed: {
+    ...mapGetters(['city'])
   }
 }
 </script>

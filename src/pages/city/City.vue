@@ -1,7 +1,9 @@
 <template lang='pug'>
   .city
     CityHeader
-    CitySearch
+    CitySearch(
+      :cities="cities"
+    )
     CityList(
       :cities="cities"
       :hot="hotCities"
@@ -14,11 +16,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/List'
 import CityAlphabet from './components/Alphabet'
+import { getCityInfo } from '@/api/baseApi.js'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'City',
@@ -38,10 +41,14 @@ export default {
   created() {
     this._getCity()
   },
+  computed: {
+    ...mapGetters(['city'])
+  },
   methods: {
     _getCity() {
-      axios.get('/api/city.json')
-        .then(this.handleGetCitySucc)
+      getCityInfo((res) => {
+        this.handleGetCitySucc(res)
+      })
     },
 
     handleGetCitySucc(res) {

@@ -1,19 +1,20 @@
 <template lang='pug'>
   .header
     .header-left
-      div.iconfont.icon-fanhui
+      .iconfont.icon-fanhui
     .header-input
       i.iconfont.icon-sousuo
       | 输入城市/景点/游玩主题
-    .header-right
-      | 城市
-      i.iconfont.icon-jiantouxia
+    router-link(to="/city")
+      .header-right
+        | {{this.city}}
+        i.iconfont.icon-jiantouxia
 </template>
 
 <script>
 export default {
-  components: {
-
+  props: {
+    city: String
   },
   data () {
     return {
@@ -59,4 +60,5 @@ export default {
       text-align center
       line-height .43rem
       font-size .2rem
+      color #fff
 </style>

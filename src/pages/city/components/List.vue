@@ -6,57 +6,23 @@
         .button-list
           .button-wrapper
             .button 成都
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
       .area
         .title.border-topBottom 热门城市
         .button-list
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
-          .button-wrapper
-            .button 成都
-      .area
-        .title.border-topBottom A
+          .button-wrapper(
+            v-for="item in hot"
+            :key="item.id"
+            )
+            .button {{item.name}}
+      .area(
+        v-for="(item, key) in cities"
+        :key="key")
+        .title.border-topBottom {{key}}
         .item-list
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-      .area
-        .title.border-topBottom A
-        .item-list
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-          .item 阿拉尔
-      .area
-      .title.border-topBottom A
-      .item-list
-        .item 阿拉尔
-        .item 阿拉尔
-        .item 阿拉尔
-        .item 阿拉尔
-        .item 阿拉尔
-        .item 阿拉尔
-        .item 阿拉尔
+          .item(
+            v-for="c in item"
+            :key="c.id"
+          ) {{c.name}}
 </template>
 
 <script>
@@ -65,6 +31,10 @@ export default {
   name: 'CityList',
   components: {
 
+  },
+  props: {
+    hot: Array,
+    cities: Object
   },
   data () {
     return {

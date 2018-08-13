@@ -1,33 +1,22 @@
 <template lang='pug'>
   .Alphabet
     ul.list
-      li.item A
-      li.item A
-      li.item A
-      li.item A
-      li.item A
-      li.item A
-      li.item A
-      li.item A
-      li.item A
+      li.item(
+        v-for="(item, key) in list"
+        :key="key"
+      ) {{key}}
 </template>
 
 <script>
 export default {
   name: 'CityAlphabet',
-  components: {
-
+  props: {
+    list: Object
   },
   data () {
     return {
 
     }
-  },
-  created: {
-
-  },
-  methods: {
-
   }
 }
 </script>

@@ -11,12 +11,14 @@
         li.search-item(
           v-for="item in list"
           :key="item.id"
+          @click="handelCityClick(item.name)"
         ) {{item.name}}
         li.search-item(v-show="noData") 没有找到匹配数据
 </template>
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -28,6 +30,13 @@ export default {
       list: [],
       timer: null
     }
+  },
+  methods: {
+    handelCityClick(city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   watch: {
     keyword() {

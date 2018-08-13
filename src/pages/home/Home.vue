@@ -1,6 +1,6 @@
 <template lang="pug">
   .home
-    HomeHeader(:city="city")
+    HomeHeader
     HomeSwiper(:list="swiperList")
     HomeIcons(:list="iconList")
     Recommend(:list="recommendList")
@@ -24,7 +24,6 @@ export default {
   },
   data () {
     return {
-      city: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -39,7 +38,6 @@ export default {
       getHomeInfo((data) => {
         const res = data.data
         if (res.ret && res.data) {
-          this.city = res.city
           this.swiperList = res.data.swiperList
           this.iconList = res.data.iconList
           this.recommendList = res.data.recommendList

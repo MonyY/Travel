@@ -12,17 +12,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  props: {
-    city: String
-  },
   data () {
     return {
 
     }
   },
   computed: {
-
+    ...mapGetters(['city'])
   },
   methods: {
 
@@ -56,9 +54,10 @@ export default {
         padding 0 .1rem
     .header-right
       float right
-      width .62rem
+      min-width .52rem
+      padding 0.1rem
       text-align center
-      line-height .43rem
-      font-size .2rem
+      line-height .2rem
+      font-size .15rem
       color #fff
 </style>

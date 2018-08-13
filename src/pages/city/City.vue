@@ -1,7 +1,9 @@
 <template lang='pug'>
   .city
     CityHeader
-    CitySearch
+    CitySearch(
+      :cities="cities"
+    )
     CityList(
       :cities="cities"
       :hot="hotCities"

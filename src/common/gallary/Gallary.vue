@@ -53,7 +53,6 @@ export default {
     z-index 9
     background-color #000
     .wrapper
-      overflow hidden
       height 0
       width 100%
       padding-bottom 100%

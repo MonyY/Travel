@@ -9,7 +9,6 @@
       router-link(to="/")
         .iconfont.icon-fanhui.header-fixed-back
       |景点详情
-
 </template>
 
 <script>

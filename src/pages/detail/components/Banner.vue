@@ -1,16 +1,16 @@
 <template lang='pug'>
   div
     .banner(@click="handleGallaryClick")
-      img.banner-img(src="//img1.qunarzz.com/sight/p0/1807/ad/ad574bfe6c9e1ceda3.img.png_600x330_0046c90a.png")
+      img.banner-img(:src="bannerImg")
       .banner-info
-        .banner-title 成都欢乐谷(AAAA景区)
+        .banner-title {{this.sightName}}
         .banner-number
           i.iconfont.icon-tupian.banner-icon
-          | 39
+          | {{this.bannerImgs.length}}
     CommonGallary(
-      :imgs="imgs"
+      :imgs="bannerImgs"
       v-show="showGallary"
-      @close="handleGallaryClose"
+      @closeGallary="handleGallaryClose"
     )
 </template>
 
@@ -23,16 +23,13 @@ export default {
   },
   data () {
     return {
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1712/5d/5d4f18e64813d0f6a3.img.jpg_r_800x800_41a80401.jpg',
-        'http://img1.qunarzz.com/sight/p0/1712/ed/edd5cde30ebe91d0a3.img.jpg_r_800x800_2595694d.jpg'
-
-      ],
       showGallary: false
     }
   },
-  created() {
-
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
   },
   methods: {
     handleGallaryClick() {

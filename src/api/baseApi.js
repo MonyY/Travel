@@ -14,3 +14,9 @@ export function getCityInfo(cb, errCb) {
     .then((data) => cb(data))
     .catch((error) => errCb(error))
 }
+
+export function getDetailInfo(req, cb, errCb) {
+  axios.get('/api/detail.json?id=' + req)
+    .then((data) => cb(data))
+    .catch((error) => errCb(error))
+}

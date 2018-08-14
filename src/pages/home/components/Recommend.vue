@@ -2,7 +2,12 @@
   .Recommend
     .title 热门推荐
     ul
-      li.item.border-bottom-1px(v-for='item in list', :key='item.id')
+      router-link.item.border-bottom-1px(
+        tag="li"
+        v-for='item in list'
+        :key='item.id'
+        :to="'/detail/' + item.id"
+      )
         img.item-img(:src='item.imgUrl')
         .item-info
           p.item-title {{item.title}}

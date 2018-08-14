@@ -13,7 +13,7 @@ import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/IconsLayout'
 import Recommend from './components/Recommend'
 import Weekend from './components/Weekend'
-import {getHomeInfo} from '@/api/baseApi.js'
+import { getHomeInfo } from '@/api/baseApi.js'
 import { mapGetters } from 'vuex'
 
 export default {

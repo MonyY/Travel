@@ -7,19 +7,22 @@
         .banner-number
           i.iconfont.icon-tupian.banner-icon
           | {{this.bannerImgs.length}}
-    CommonGallary(
-      :imgs="bannerImgs"
-      v-show="showGallary"
-      @closeGallary="handleGallaryClose"
-    )
+    FadeAnimation
+      CommonGallary(
+        :imgs="bannerImgs"
+        v-show="showGallary"
+        @closeGallary="handleGallaryClose"
+      )
 </template>
 
 <script>
 import CommonGallary from '../../../common/gallary/Gallary'
+import FadeAnimation from '../../../common/fade/Fade'
 export default {
   name: 'banner',
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   data () {
     return {

@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 import 'styles/reset.styl'
+// 让低版本浏览器支持ES6
+import 'babel-polyfill'
 // 解决移动端1px边框
 import 'styles/border.styl'
 import 'styles/iconfont/iconfont.css'

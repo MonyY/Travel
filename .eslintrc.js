@@ -28,6 +28,7 @@ module.exports = {
     'eqeqeq': [2, 'smart'],
     'eol-last': 0,
     'indent': [1, 2],
-    'space-before-function-paren': 0
+    'space-before-function-paren': 0,
+    'func-call-spacing': ["error", "never"]
   }
 }
